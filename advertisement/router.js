@@ -8,7 +8,7 @@ router.get(
 , (req, res, next) => Advertisement
   .findAll()
   .then(advertisements => res
-    .json({Advertisements: advertisements}))
+    .json(advertisements))
   .catch(error => next(error))
 )
 
@@ -22,7 +22,7 @@ router.get(
     .findByPk(id)
     .then(advertisement => {
       if (advertisement) {
-        res.json({Advertisement: advertisement})
+        res.json(advertisement)
       } else {
         res.status(404).json({message: 'Advertisement not found.'})
       }
